@@ -1,6 +1,6 @@
-# eks-openobserve
+# OpenObserve Installation guide for Amazon EKS
 
-Guide on installing OpenObserve on Amazon EKS
+This guide will help you install OpenObserve on Amazon EKS.
 
 ## Install eksctl and create an EKS cluster (Skip if EKS cluster already exists)
 
