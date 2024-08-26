@@ -4,11 +4,11 @@ metadata:
   name: o2
   region: us-east-2
   version: "1.30"
-  tags:
-    karpenter.sh/discovery: o2
+  # tags:
+  #   karpenter.sh/discovery: o2
 
-karpenter:
-  version: 'v1.0.1' # Exact version must be specified
+# karpenter:
+#   version: 'v1.0.1' # Exact version must be specified
 
 vpc:
   cidr: 10.1.0.0/16
@@ -16,7 +16,7 @@ vpc:
   #   gateway: Disabled
 
 managedNodeGroups:
-  - name: m6i
+  - name: m7i
     instanceType: m7i.xlarge
     minSize: 3
     maxSize: 6
