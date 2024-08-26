@@ -18,7 +18,11 @@ Follow instructions at https://helm.sh/docs/intro/install/
 
 ## Create s3 Bucket and IAM Policy, Role for OpenObserve
 
-
+```shell
+wget https://raw.githubusercontent.com/openobserve/eks-openobserve/main/bucket.sh
+chmod +x bucket.sh
+./bucket.sh
+```
 
 ## Download values.yaml file
 
