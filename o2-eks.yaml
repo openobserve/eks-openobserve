@@ -1,0 +1,45 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: o2
+  region: us-east-2
+  version: "1.30"
+  tags:
+    karpenter.sh/discovery: o2
+
+karpenter:
+  version: 'v1.0.1' # Exact version must be specified
+
+vpc:
+  cidr: 10.1.0.0/16
+  # nat:
+  #   gateway: Disabled
+
+managedNodeGroups:
+  - name: m6i
+    instanceType: m7i.xlarge
+    minSize: 3
+    maxSize: 6
+    desiredCapacity: 3
+    amiFamily: Ubuntu2204
+    iam:
+      withAddonPolicies:
+        imageBuilder: true
+        autoScaler: true
+        ebs: true
+        certManager: true
+        externalDNS: true
+        albIngress: true
+        cloudWatch: true
+iam:
+  withOIDC: true
+
+addons:
+  - name: kube-proxy
+  - name: coredns
+  - name: vpc-cni
+  - name: aws-ebs-csi-driver
+    
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["*"]
