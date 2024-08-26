@@ -22,6 +22,13 @@ Follow instructions at https://helm.sh/docs/intro/install/
 ```shell
 wget https://raw.githubusercontent.com/openobserve/eks-openobserve/main/bucket.sh
 chmod +x bucket.sh
+
+```
+Edit the bucket.sh file and update the `CLUSTER_NAME` variable with the EKS cluster name
+
+Run the script to create the bucket and IAM role
+
+```shell
 ./bucket.sh
 ```
 
