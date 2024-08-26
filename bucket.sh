@@ -2,8 +2,6 @@
 
 # Set the cluster name
 CLUSTER_NAME=o2
-NAMESPACE=openobserve
-SERVICE_ACCOUNT=openobserve
 
 # Get the AWS account ID
 AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
