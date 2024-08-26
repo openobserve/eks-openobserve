@@ -24,7 +24,7 @@ wget https://raw.githubusercontent.com/openobserve/eks-openobserve/main/bucket.s
 chmod +x bucket.sh
 
 ```
-Edit the bucket.sh file and update the `CLUSTER_NAME` variable with the EKS cluster name
+Edit the `bucket.sh` file and update the `CLUSTER_NAME` variable with the EKS cluster name
 
 Run the script to create the bucket and IAM role
 
