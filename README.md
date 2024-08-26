@@ -59,7 +59,11 @@ kubectl apply -f https://raw.githubusercontent.com/openobserve/eks-openobserve/m
 ```shell
 helm repo add openobserve https://openobserve.github.io/openobserve-helm-chart
 helm repo update
+```
 
+### Install OpenObserve
+
+```shell
 kubectl create ns openobserve
 
 helm --namespace openobserve -f values.yaml install o2 openobserve/openobserve
