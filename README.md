@@ -8,7 +8,9 @@ Installation guide for eksctl at: https://eksctl.io/installation/
 
 Create EKS cluster
 
-> eksctl create cluster -f o2-eks.yaml
+```shell
+eksctl create cluster -f o2-eks.yaml
+```
 
 Cluster creation started at 1:42 PM
 
@@ -48,10 +50,17 @@ kubectl apply --server-side -f \
   https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/main/releases/cnpg-1.24.0.yaml
 ```
 
+Create a StorageClass for gp3 volumes
+
+```shell
+kubectl apply -f https://raw.githubusercontent.com/openobserve/eks-openobserve/main/gp3_storage_class.yaml
+```
+
 ### Add OpenObserve Helm repository
 
 ```shell
 helm repo add openobserve https://openobserve.github.io/openobserve-helm-chart
+helm repo update
 
 kubectl create ns openobserve
 

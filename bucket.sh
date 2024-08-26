@@ -21,7 +21,7 @@ bucket="openobserve-$random_number"
 # Create s3 bucket for OpenObserve
 aws s3 mb s3://$bucket
 
-echo "S3 bucket created: $bucket"
+
 
 # Set the policy name and description
 POLICY_NAME="OpenObservePolicy"
@@ -47,6 +47,7 @@ POLICY_DOCUMENT='{
 }'
 
 # Create the policy
+echo 'Creating policy'
 aws iam create-policy --policy-name $POLICY_NAME --policy-document "$POLICY_DOCUMENT" --description "$POLICY_DESCRIPTION"
 
 # Set the role name and description
@@ -54,6 +55,7 @@ ROLE_NAME="OpenObserveRole"
 ROLE_DESCRIPTION="Role for EKS service account"
 
 # Create the role
+echo 'Creating role'
 aws iam create-role --role-name $ROLE_NAME --description "$ROLE_DESCRIPTION" --assume-role-policy-document '{
   "Version": "2012-10-17",
   "Statement": [
@@ -72,7 +74,13 @@ aws iam create-role --role-name $ROLE_NAME --description "$ROLE_DESCRIPTION" --a
   ]
 }'
 
-# Attach the policy to the role
-aws iam attach-role-policy --role-name $ROLE_NAME --policy-arn arn:aws:iam::'$AWS_ACCOUNT_ID':policy/$POLICY_NAME
-
 echo "Role created: $ROLE_NAME"
+# Get the role ARN
+ROLE_ARN=$(aws iam get-role --role-name $ROLE_NAME --query 'Role.Arn' --output text)
+
+# Attach the policy to the role
+echo 'Attaching policy to role'
+aws iam attach-role-policy --role-name $ROLE_NAME --policy-arn arn:aws:iam::$AWS_ACCOUNT_ID:policy/$POLICY_NAME
+
+echo "S3 bucket created: $bucket"
+echo "Role ARN: $ROLE_ARN"
