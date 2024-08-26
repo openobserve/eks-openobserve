@@ -9,6 +9,7 @@ Installation guide for eksctl at: https://eksctl.io/installation/
 Create EKS cluster
 
 ```shell
+wget https://raw.githubusercontent.com/openobserve/eks-openobserve/main/o2-eks.yaml
 eksctl create cluster -f o2-eks.yaml
 ```
 
