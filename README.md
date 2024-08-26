@@ -12,8 +12,6 @@ Create EKS cluster
 eksctl create cluster -f o2-eks.yaml
 ```
 
-Cluster creation started at 1:42 PM
-
 ## Install Helm (If not already installed)
 
 Follow instructions at https://helm.sh/docs/intro/install/
