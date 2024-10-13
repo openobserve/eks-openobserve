@@ -65,7 +65,7 @@ kubectl apply -f https://raw.githubusercontent.com/openobserve/eks-openobserve/m
 ### Add OpenObserve Helm repository
 
 ```shell
-helm repo add openobserve https://openobserve.github.io/openobserve-helm-chart
+helm repo add openobserve https://charts.openobserve.ai
 helm repo update
 ```
 
