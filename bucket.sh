@@ -39,7 +39,10 @@ POLICY_DOCUMENT='{
         "s3:DeleteObject"
       ],
       "Effect": "Allow",
-      "Resource": "arn:aws:s3:::'$bucket'/*"
+      "Resource": [
+        "arn:aws:s3:::'$bucket'/*",
+        "arn:aws:s3:::'$bucket'"
+      ]
     }
   ]
 }'
